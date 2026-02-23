@@ -1,5 +1,6 @@
 package es.tatvil.formula1.controller;
 
+import es.tatvil.formula1.dto.PilotoDTO;
 import es.tatvil.formula1.entity.Piloto;
 import es.tatvil.formula1.repository.PilotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,10 @@ public class PilotoController {
     @GetMapping("/{id}")
     public Piloto getPilotoById(@PathVariable Long id) {
         return pilotoRepository.findById(id).orElse(null);
+    }
+    
+    @GetMapping("/api/pilotos")
+    public List<PilotoDTO> getPilotos() {
+        return pilotoRepository.findPilotosConEscuderia();
     }
 }
