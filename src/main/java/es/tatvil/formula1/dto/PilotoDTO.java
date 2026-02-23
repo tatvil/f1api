@@ -19,10 +19,12 @@ public class PilotoDTO {
         this.nacionalidad = nacionalidad;
     }
 
+    
     public Integer getNumero() { return numero; }
     public String getCodigo() { return codigo; }
     public String getNombre() { return nombre; }
     public String getApellido() { return apellido; }
     public String getEscuderia() { return escuderia; }
     public String getNacionalidad() { return nacionalidad; }
+
 }
