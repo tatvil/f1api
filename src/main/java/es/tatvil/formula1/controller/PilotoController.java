@@ -9,24 +9,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/pilotos")
+@RequestMapping("/f1/api/pilotos") // ajustamos al endpoint que usa tu JS
 public class PilotoController {
 
     @Autowired
     private PilotoRepository pilotoRepository;
 
+    // Devuelve pilotos con escudería usando DTO
     @GetMapping
-    public List<Piloto> getAllPilotos() {
-        return pilotoRepository.findAll();
+    public List<PilotoDTO> getPilotos() {
+        return pilotoRepository.findPilotosConEscuderia();
     }
 
+    // Devuelve un piloto por ID (si quieres)
     @GetMapping("/{id}")
     public Piloto getPilotoById(@PathVariable Long id) {
         return pilotoRepository.findById(id).orElse(null);
-    }
-    
-    @GetMapping("/api/pilotos")
-    public List<PilotoDTO> getPilotos() {
-        return pilotoRepository.findPilotosConEscuderia();
     }
 }
