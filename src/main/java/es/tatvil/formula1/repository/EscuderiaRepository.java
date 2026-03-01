@@ -1,9 +1,10 @@
 package es.tatvil.formula1.repository;
 
-import es.tatvil.formula1.entity.Escuderia;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import es.tatvil.formula1.dto.EscuderiaDTO;
+import es.tatvil.formula1.dto.PilotoDTO;
+import java.util.List;
 
-@Repository
-public interface EscuderiaRepository extends JpaRepository<Escuderia, Long> {
+public interface EscuderiaRepository {
+    List<EscuderiaDTO> findAll();
+    List<PilotoDTO> findPilotosPorEscuderia(Long escuderiaId);
 }
