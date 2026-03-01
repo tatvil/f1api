@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EscuderiaRepository extends JpaRepository<Escuderia, Long> {
-	
 	    @Query("SELECT new es.tatvil.formula1.dto.EscuderiaDTO(e.id, e.nombre) FROM Escuderia e")
 	    List<EscuderiaDTO> findAllDTO();  // método nuevo, no sobrescribe findAll()
 	 
