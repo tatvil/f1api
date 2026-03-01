@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/escuderias")
+@RequestMapping("/f1/api/escuderias")
 public class EscuderiaController {
 
     @Autowired
@@ -17,11 +17,6 @@ public class EscuderiaController {
 
     @GetMapping
     public List<EscuderiaDTO> getEscuderias() {
-        return escuderiaRepository.findAll();
-    }
-
-    @GetMapping("/{id}/pilotos")
-    public List<PilotoDTO> getPilotosPorEscuderia(@PathVariable Long id) {
-        return escuderiaRepository.findPilotosPorEscuderia(id);
+        return escuderiaRepository.findAllDTO(); // aquí ya devuelve DTO
     }
 }
